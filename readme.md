@@ -1,4 +1,6 @@
 RPC Stype WSDL file
+In RPC style wsdl file , type is used with part name but 
+in case of Document style element is used with part name.
 
 <!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is 
 	JAX-WS RI 2.2.4-b01. -->
@@ -13,7 +15,7 @@ RPC Stype WSDL file
 	name="WebServiceImplService">
 	<types />
 	<message name="getHelloWorldAsString">
-		<part name="arg0" type="xsd:string" />  Here is the difference between document and rpc . In case of Document here comes element instead of type
+		<part name="arg0" type="xsd:string" />  
 	</message>
 	<message name="getHelloWorldAsStringResponse">
 		<part name="return" type="xsd:string" />
