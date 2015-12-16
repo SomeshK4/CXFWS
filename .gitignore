@@ -1,0 +1,12 @@
+/cxfws/*.classpath
+/cxfws/*.project
+/cxfws/.settings/*.jsdtscope
+/cxfws/.settings/*.prefs
+/cxfws/.settings/*.component
+/cxfws/.settings/*.xml
+/cxfws/.settings/*.container
+/cxfws/.settings/*.name
+/cxfws/target/cxf-codegen-plugin-markers/*.E0DEFE5D70209BA10D443C7801931CC1F3C53D7E
+/cxfws/target/m2e-wtp/web-resources/META-INF/*.MF
+/cxfws/target/m2e-wtp/web-resources/META-INF/maven/com.cxf/cxfws/*.properties
+/cxfws/target/m2e-wtp/web-resources/META-INF/maven/com.cxf/cxfws/*.xml
