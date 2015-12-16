@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	targetNamespace="http://benchresources.in/services/BookService/"
+	xmlns:tns="http://benchresources.in/services/BookService/" xmlns:book="http://benchresources.in/entities/Book"
+	name="BookService">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://benchresources.in/services/BookService/">
+			<xsd:import namespace="http://benchresources.in/entities/Book"
+				schemaLocation="../xsd/book.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="BookRequest">
+		<wsdl:part name="parameters" element="book:BookRequestType" />
+	</wsdl:message>
+
+	<wsdl:message name="BookResponse">
+		<wsdl:part name="parameters" element="book:BookResponseType" />
+	</wsdl:message>
+
+	<wsdl:message name="UserDefinedException">
+		<wsdl:part name="fault" element="book:UserDefinedFault" />
+	</wsdl:message>
+
+	<wsdl:portType name="IBookService">
+		<wsdl:operation name="getBookByISDNRequestNumber">
+			<wsdl:input message="tns:BookRequest" />
+			<wsdl:output message="tns:BookResponse" />
+			<wsdl:fault name="fault" message="tns:UserDefinedException" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="BookServiceSOAPBinding" type="tns:IBookService">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<wsdl:operation name="getBookByISDNRequestNumber">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="BookService">
+		<wsdl:port name="BookServicePort" binding="tns:BookServiceSOAPBinding">
+			<soap:address location="http://localhost:8088/cxfws/services/BookService" />
+		</wsdl:port>
+	</wsdl:service>
+
+
+</wsdl:definitions>
